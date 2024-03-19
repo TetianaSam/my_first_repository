@@ -17,15 +17,19 @@ def search_item():
 def add_item():
     pass
 def print_items():
-    pass
+    print("Aktualni seznam knizek")
+    for item in db:
+        print(f"jmeno:{item['name']}, author: {item['author']}")
+    print("-------------------------")
+    print()
+
+
 def del_item():
     pass
 def replace_item():
     pass
 def get_input():
-
-
-
+    return input("Zadej volbu")
 def run():
     db = [{"name": "hamlet", "author": "shakespeare"},
           {"name": "harry potter", "author": "jk rowling"}]
@@ -39,7 +43,8 @@ def run():
         user_choise = get_input()
 
         if user_choise == 1:
-            pass
+            print_items(db)
+
         elif user_choise == 2:
             pass
         elif user_choise == 3:
