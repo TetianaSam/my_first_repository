@@ -3,7 +3,15 @@
 
 
 def print_menu():
-    pass
+    print("""
+    [1] - vypis polozky
+    [1] - vyhledej polozku
+    [1] - pridej polozku
+    [1] - smaz polozky
+    [1] - nahrad' polozky
+    [1] - konec
+        """)
+
 def search_item():
     pass
 def add_item():
