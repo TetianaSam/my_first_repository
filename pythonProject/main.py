@@ -5,18 +5,27 @@
 def print_menu():
     print("""
     [1] - vypis polozky
-    [1] - vyhledej polozku
-    [1] - pridej polozku
-    [1] - smaz polozky
-    [1] - nahrad' polozky
-    [1] - konec
+    [2] - vyhledej polozku
+    [3] - pridej polozku
+    [4] - smaz polozky
+    [5] - nahrad' polozku
+    [6] - konec
         """)
 
-def search_item():
-    pass
-def add_item():
-    pass
-def print_items():
+def search_item(db):
+    item_n = input("Zadej jmeno kterou chces najit: ")
+
+    for item_n in db:
+        if item_n["name"] == name:
+            return True
+    return False
+def add_item(db):
+    name = input("Zadej jmeno knizky: ")
+    author = input("Zadej jmeno authora: ")
+
+    db.append({"name":name, "author": author})
+
+def print_items(db):
     print("Aktualni seznam knizek")
     for item in db:
         print(f"jmeno:{item['name']}, author: {item['author']}")
@@ -25,11 +34,27 @@ def print_items():
 
 
 def del_item():
-    pass
+   name = input("Zadej nazev knihy jakou chces smazat: ")
+
+
+
+
 def replace_item():
-    pass
+    name = input("Zadej nazev knihy jakou chces updatnout autora: ")
+    # vylepseni o ruznej update, name, author...
+
+    update_index = None
+    for i in range (len(db)):
+        if db[i]["name"] == name:
+            update_index = i
+        if update_index is None:
+            print("kniha se nenasla")
+            return False
+    author = input("Zadej authora knihy jakou chces updatnout: ")
+
+
 def get_input():
-    return input("Zadej volbu")
+    return int(input("Zadej volbu: "))
 def run():
     db = [{"name": "hamlet", "author": "shakespeare"},
           {"name": "harry potter", "author": "jk rowling"}]
@@ -40,20 +65,21 @@ def run():
 
     while True:
         print_menu()
-        user_choise = get_input()
+        user_choice = get_input()
 
-        if user_choise == 1:
+        if user_choice == 1:
             print_items(db)
 
-        elif user_choise == 2:
+        elif user_choice == 2:
+            add_item(db)
+
+        elif user_choice == 3:
             pass
-        elif user_choise == 3:
+        elif user_choice == 4:
             pass
-        elif user_choise == 4:
+        elif user_choice == 5:
             pass
-        elif user_choise == 5:
-            pass
-        elif user_choise == 6:
+        elif user_choice == 6:
             pass
 
         else:
