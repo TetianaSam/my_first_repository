@@ -86,3 +86,5 @@ def run():
             print("Zadal jsi neplatnou volbu")
 
 run()
+
+print ("added changes")
